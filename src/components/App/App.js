@@ -34,11 +34,10 @@ export const App = () => {
   }
 
   useEffect(() => {
-    // setSearchCategory()
-    console.log(searchCategory)
+
   })
 
-// conditionally render and refactor Route 
+// conditionally rendering - needs refactor 
 
   return (  
     <main className="App">
@@ -51,7 +50,19 @@ export const App = () => {
           <h1>GET Un-Bored</h1>
         </Link>
       </header>
-      {!search ? <Route exact path='/' render={() => <Form search={search} generateActivity={generateActivity} setSearch={setSearch} setSearchCategory={setSearchCategory} searchCategory={searchCategory} />}/> : null }
+
+      <Route 
+        exact path='/' 
+        render={() => 
+          <Form 
+            search={search} 
+            generateActivity={generateActivity} 
+            setSearch={setSearch} 
+            setSearchCategory={setSearchCategory} 
+            searchCategory={searchCategory} 
+          />
+        }
+      />
       
       {search && suggestedActivity.length === 0 ? <h3>Loading... </h3> : null }
 

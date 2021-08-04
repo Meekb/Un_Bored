@@ -5,35 +5,56 @@ export const Activity = ({ activity, type, participants, price, link, accessibil
 
   const saveActivityInfo = (e) => {
     e.preventDefault()
-    console.log(true) 
+    // console.log(true) 
     // let infoToSave = { activity: activity, type: type, participants: participants, price: price, link: link, accessibility: accessibility};
     // console.log('infoToSave', infoToSave)
   }
   
   const displayAccessibility = (accessibility) => {
     let display;
+
     const options = {
+      zero: 'If you do it, the people will be inspired.',
       easy: 'Come on! You can probably make this happen if we\'re being honest here...',
-      lessEasy: 'Would this be productive for you? Then you probably should.',
+      lessEasy: 'Maybe it\'s productive, or it will warm someones heart. Go for it!',
       medium: 'Do it for your country!',
       hard: 'How bad do you want it?!',
-      difficult: 'Uhhh...if you do it then it\'s going in the Showcase!'
+      difficult: 'This is something that should be in your Showcase!',
+      veryDifficult: 'Only the wisest shall pass...'
     }
-    if (accessibility < .15) {
-      display = options.easy
+
+    switch (accessibility) {
+      case 0:
+        display = options.zero
+        break
+      case 0.1:
+        display = options.easy
+        break
+      case 0.2:
+        display = options.lessEasy
+        break
+      case 0.3:
+        display = options.lessEasy
+        break
+      case 0.4:
+        display = options.lessEasy
+        break
+      case 0.5:
+        display = options.medium
+        break
+      case 0.6:
+        display = options.hard
+        break
+      case 0.8:
+        display = options.difficult
+        break
+      case 0.9:
+        display = options.veryDifficult
+        break 
+      default:
+        display = 'Go get em\', tiger!' 
     }
-    if (accessibility > .15 && accessibility < .30) {
-      display = options.lessEasy
-    }
-    if (accessibility >= .30 && accessibility < .50) {
-      display = options.medium
-    }
-    if (accessibility > .50 && accessibility < .65) {
-      display = options.hard
-    } 
-    if (accessibility > .65 && accessibility < .85) {
-      display = options.difficult
-    }
+
     return (
       <p>{display}</p>
     )
@@ -46,7 +67,7 @@ export const Activity = ({ activity, type, participants, price, link, accessibil
       <p>Participants: {participants}</p>
       {price === 0 ? <p>FREE!</p> : <p>${price}</p>}
       {link !== "" ? <a href={link} src={link} /> : null}
-      <p>{displayAccessibility(accessibility)}</p>
+      {displayAccessibility(accessibility)}
       <button onClick={(e) => saveActivityInfo(e)} >Save this shit!</button>
     </section>
   );  

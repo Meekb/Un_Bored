@@ -17,6 +17,7 @@ export const Form = ({ generateActivity, setSearch, search, setSearchCategory })
 
   return (
     <main>
+      {!search ?
       <form>
         <label>Category:</label>
         <select className='activity' onChange={(e) => setCategory(e.target.value)}>
@@ -35,7 +36,8 @@ export const Form = ({ generateActivity, setSearch, search, setSearchCategory })
         <div>
           <button onClick={(e) => submitSearch(e)} disabled={search ? true : false} >Do A Thing</button>
         </div>
-      </form>
+      </form> : null
+      }
     </main>
   );  
 }
