@@ -8,7 +8,7 @@ const checkForError = (response) => {
   if (response.ok) {
     return response.json()  
   } else {
-    throw new Error('UH OH! Something has gone terribly wrong!')
+    throw new Error('UH OH! Something has gone horribly wrong!!!')
   }
 }
 

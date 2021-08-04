@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Form.css'
 
-export const Form = ({ generateActivity, setSearch, search, setSearchCategory, searchCategory }) => {
+export const Form = ({ generateActivity, setSearch, search, setSearchCategory }) => {
 
   const [category, setCategory] = useState('');
 
-  const submitSearch = (e, searchCategory) => {
+  const submitSearch = (e) => {
     e.preventDefault();
-    generateActivity(searchCategory);
+    generateActivity(category);
     setSearch(true)
   } 
 
@@ -20,7 +20,7 @@ export const Form = ({ generateActivity, setSearch, search, setSearchCategory, s
       <form>
         <label>Category:</label>
         <select className='activity' onChange={(e) => setCategory(e.target.value)}>
-          <option value='undefined'></option>
+          <option value='undefined' default ></option>
           <option value='education'>Education</option>
           <option value='recreational'>Recreation</option>
           <option value='social'>Social</option>
