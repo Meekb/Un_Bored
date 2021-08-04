@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './Form.css'
 
-export const Form = ({ generateActivity, setActiveData, activeData, setSearchCategory }) => {
+export const Form = ({ generateActivity, setSearch, search, setSearchCategory, searchCategory }) => {
 
   const [category, setCategory] = useState('');
 
-  // const [participants, setParticipants] = useState(1);
+  const submitSearch = (e, searchCategory) => {
+    e.preventDefault();
+    generateActivity(searchCategory);
+    setSearch(true)
+  } 
 
-const submitSearch = (e, category) => {
-  e.preventDefault();
-  generateActivity(category);
-  setActiveData(true)
-} 
-
-useEffect(() => {
-})
+  useEffect(() => {
+    setSearchCategory(category)
+  })
 
   return (
     <main>
       <form>
         <label>Category:</label>
         <select className='activity' onChange={(e) => setCategory(e.target.value)}>
-          <option value='null'></option>
+          <option value='undefined'></option>
           <option value='education'>Education</option>
           <option value='recreational'>Recreation</option>
           <option value='social'>Social</option>
@@ -32,8 +31,9 @@ useEffect(() => {
           <option value='music'>Music</option>
           <option value='busywork'>Busywork</option>
         </select>
+        <p>Leaving category blank will result in a randomly generated activity.</p>
         <div>
-          <button onClick={(e) => submitSearch(e)} disabled={activeData ? true : false} >Do A Thing</button>
+          <button onClick={(e) => submitSearch(e)} disabled={search ? true : false} >Do A Thing</button>
         </div>
       </form>
     </main>

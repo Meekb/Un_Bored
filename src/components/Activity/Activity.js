@@ -8,7 +8,7 @@ export const Activity = ({ activity, type, participants, price, link, accessibil
     console.log(true) 
     // let infoToSave = { activity: activity, type: type, participants: participants, price: price, link: link, accessibility: accessibility};
     // console.log('infoToSave', infoToSave)
-  }
+  } 
 
   return (
     <section>
