@@ -1,7 +1,7 @@
 import React from 'react';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, link, accessibility, sendToSaved }) => {
+export const Activity = ({ activity, id, type, participants, price, link, loading, accessibility, search, sendToSaved }) => {
 
   const saveActivityInfo = (e) => {
     e.preventDefault()
@@ -65,7 +65,11 @@ export const Activity = ({ activity, id, type, participants, price, link, access
   }
 
   return (
-    <section>
+    <section className='generated-activity'>
+
+      {loading && <h4>Loading...</h4>}
+
+      {search && 
       <div key={id} id={id}>
         <h2>{activity}!</h2>
         <p>Category: {type}</p>
@@ -74,7 +78,8 @@ export const Activity = ({ activity, id, type, participants, price, link, access
         {link ? <a href={link} src={link} /> : null}
         {displayAccessibility(accessibility)}
         <button onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
-      </div>
+      </div>}
+
     </section>
   );  
 }

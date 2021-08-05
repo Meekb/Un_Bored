@@ -17,7 +17,7 @@ export const Saved = ({ activity, accessibility, id, link, participants, price, 
   });
 
   return (
-    <section>
+    <section className='saved'>
       {savedView ? {savedActs} : null}
     </section>
   );

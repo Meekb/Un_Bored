@@ -3,7 +3,7 @@ import { Activity } from '../Activity/Activity';
 import { Form } from '../Form/Form';
 import { Footer } from '../Footer/Footer';
 import { Saved } from '../Saved/Saved'
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import { fetchActivity } from '../../apiCalls';
 import './App.css';
 
@@ -52,20 +52,15 @@ export const App = () => {
   return (  
     <main className="App">
       <header className="App-header">
-        <Link 
+        <NavLink 
           to='/'
           style={{ textDecoration: 'none' }}
           onClick={() => setSearch(false)}
         >
           <h1>GET Un-Bored</h1>
-        </Link>
+        </NavLink>
       </header>
       
-      {suggestedActivity.length === 0 ? <h3>Loading... </h3> : null}
-
-      {search && suggestedActivity.length !== 0 ? <Activity exact path={`type=${suggestedActivity.type}`} id={suggestedActivity.key} activity={suggestedActivity.activity} type={suggestedActivity.type} participants={suggestedActivity.participants} price={suggestedActivity.price} link={suggestedActivity.link} accessibility={suggestedActivity.accessibility} sendToSaved={sendToSaved} /> : <h3>Pick a category and generate something to do...</h3> }
-
-
       <Switch>
         <Route 
           exact path='/' 
@@ -76,9 +71,27 @@ export const App = () => {
               setSearch={setSearch} 
               setSearchCategory={setSearchCategory} 
               searchCategory={searchCategory}
+              suggestedActivity={suggestedActivity}
               loading={loading} 
             />
           }
+        />
+        <Route 
+          path={`type=${searchCategory}`} 
+          render={() => 
+            <Activity
+            key={suggestedActivity.key} 
+            id={suggestedActivity.key} 
+            activity={suggestedActivity.activity} 
+            type={suggestedActivity.type} 
+            participants={suggestedActivity.participants} 
+            price={suggestedActivity.price} 
+            link={suggestedActivity.link}
+            loading={loading} 
+            accessibility={suggestedActivity.accessibility} 
+            sendToSaved={sendToSaved}
+            search={search} 
+            />}
         />
         <Route
           exact path='/Saved' 
@@ -92,7 +105,8 @@ export const App = () => {
           accessibility={suggestedActivity.accessibility} 
           savedActivities={[savedActivities]}
           savedView={savedView}
-        />} />  
+          />} 
+        />  
 
       </Switch>
 
