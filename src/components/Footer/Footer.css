@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(149, 110, 186);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.saved-btn {
+  font-size: 22px;
+  margin-right: 20px;
+}
+
+.showcase-btn {
+  font-size: 22px;
+  margin-left: 20px;
+}
