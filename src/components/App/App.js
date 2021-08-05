@@ -30,9 +30,9 @@ export const App = () => {
     .then(
       (activityData) => {
         console.log(activityData);
-        setSearch(true)
         setSuggestedActivity(activityData)
         setLoading(false)
+        setSearch(true)
       }
     )
     .catch(error => setErrorCode(error.message))   // error component for 
@@ -40,17 +40,16 @@ export const App = () => {
 
   const sendToSaved = (newActivity) => {
     setSavedActivities([...savedActivities, newActivity]);
-    console.log(savedActivities)
   }
 
   useEffect(() => {
     console.log(savedActivities);
+    console.log(savedActivities.length)
   })
-
-// conditionally rendering - needs refactor 
 
   return (  
     <main className="App">
+
       <header className="App-header">
         <NavLink 
           to='/'
@@ -58,6 +57,7 @@ export const App = () => {
           onClick={() => setSearch(false)}
         >
           <h1>GET Un-Bored</h1>
+          <h2 className='sub'>The Activity Generator For Indecisive Humans</h2>
         </NavLink>
       </header>
       
@@ -77,40 +77,41 @@ export const App = () => {
           }
         />
         <Route 
-          path={`type=${searchCategory}`} 
-          render={() => 
+          exact path='/Activity' 
+          render={() =>
             <Activity
-            key={suggestedActivity.key} 
-            id={suggestedActivity.key} 
-            activity={suggestedActivity.activity} 
-            type={suggestedActivity.type} 
-            participants={suggestedActivity.participants} 
-            price={suggestedActivity.price} 
-            link={suggestedActivity.link}
-            loading={loading} 
-            accessibility={suggestedActivity.accessibility} 
-            sendToSaved={sendToSaved}
-            search={search} 
-            />}
+              key={suggestedActivity.key} 
+              id={suggestedActivity.key} 
+              activity={suggestedActivity.activity} 
+              type={suggestedActivity.type} 
+              participants={suggestedActivity.participants} 
+              price={suggestedActivity.price} 
+              link={suggestedActivity.link} 
+              accessibility={suggestedActivity.accessibility} 
+              sendToSaved={sendToSaved}
+              search={search}
+            />
+          }
         />
         <Route
           exact path='/Saved' 
-          render={() => <Saved
-          id={suggestedActivity.key}
-          activity={suggestedActivity.activity}
-          type={suggestedActivity.type}
-          participants={suggestedActivity.participants}
-          price={suggestedActivity.price}
-          link={suggestedActivity.link}
-          accessibility={suggestedActivity.accessibility} 
-          savedActivities={[savedActivities]}
-          savedView={savedView}
-          />} 
+          render={() => 
+          <Saved
+            id={suggestedActivity.key}
+            activity={suggestedActivity.activity}
+            type={suggestedActivity.type}
+            participants={suggestedActivity.participants}
+            price={suggestedActivity.price}
+            link={suggestedActivity.link}
+            accessibility={suggestedActivity.accessibility} 
+            savedActivities={savedActivities}
+            savedView={savedView}
+          />
+         } 
         />  
-
       </Switch>
 
-      <Footer savedView={savedView} setSavedView={setSavedView} />
+      <Footer setSavedView={setSavedView} setSearch={setSearch} />
 
     </main>
   );

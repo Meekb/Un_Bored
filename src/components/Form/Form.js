@@ -2,22 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Form.css'
 
-export const Form = ({ generateActivity, setSearch, search, setSearchCategory, suggestedActivity }) => {
+export const Form = ({ generateActivity, search, setSearchCategory }) => {
 
   const [category, setCategory] = useState('');
 
   const submitSearch = (e) => {
     e.preventDefault();
     generateActivity(category);
-    setSearch(true)
   } 
-
+  
   useEffect(() => {
     setSearchCategory(category)
   })
 
   return (
-    <main>
+    <section>
       {!search ?
       <form>
         <label>Category:</label>
@@ -33,14 +32,14 @@ export const Form = ({ generateActivity, setSearch, search, setSearchCategory, s
           <option value='music'>Music</option>
           <option value='busywork'>Busywork</option>
         </select>
-        <p>Leaving category blank will result in a randomly generated activity.</p>
+        <p>Warning: Leaving blank will result in a randomly generated activity which may be considered productive</p>
         <div>
-          <NavLink to={`type=${category}`}>
-            <button onClick={(e) => submitSearch(e)} disabled={search ? true : false} >Do A Thing</button>
+          <NavLink to='/Activity'>
+            <button type='submit' className='do-a-thing' onClick={(e) => submitSearch(e)}>Do A Thing</button>
           </NavLink>
         </div>
       </form> : null
       }
-    </main>
+    </section>
   );  
 }
