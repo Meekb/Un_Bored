@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Form.css'
 
-export const Form = ({ generateActivity, search, setSearchCategory }) => {
+export const Form = ({ generateActivity, search, setSearchCategory, suggestedActivity }) => {
 
   const [category, setCategory] = useState('');
 
@@ -34,8 +34,8 @@ export const Form = ({ generateActivity, search, setSearchCategory }) => {
         </select>
         <p>Warning: Leaving blank will result in a randomly generated activity which may be considered productive</p>
         <div>
-          <NavLink to='/Activity'>
-            <button type='submit' className='do-a-thing' onClick={(e) => submitSearch(e)}>Do A Thing</button>
+          <NavLink to={`/${suggestedActivity.type}${suggestedActivity.key}`}>
+            <button type='button' className='do-a-thing' onClick={(e) => submitSearch(e)}>Do A Thing</button>
           </NavLink>
         </div>
       </form> : null
@@ -43,3 +43,5 @@ export const Form = ({ generateActivity, search, setSearchCategory }) => {
     </section>
   );  
 }
+
+

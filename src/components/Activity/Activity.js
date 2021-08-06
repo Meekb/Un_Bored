@@ -66,7 +66,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
 
   return (
     <section className='generated-activity'>
-      {!search && 
+
         <div key={id} id={id}>
           <h2>{activity}!</h2>
           <p>Category: {type}</p>
@@ -74,9 +74,9 @@ export const Activity = ({ activity, id, type, participants, price, link, access
           {price === 0 ? <p>FREE!</p> : <p>${price}</p>}
           {link ? <a href={link} src={link} /> : null}
           {displayAccessibility(accessibility)}
-          <button onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
+          <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
         </div>
-      }
+        
     </section>
   );  
 }

@@ -1,4 +1,11 @@
 .generated-activity {
+  display: flex;
+  flex-direction: column;
   font-size: 22px;
   color: black;
+  overflow: scroll;
+}
+
+.save-btn {
+  font-size: 18px;
 }

@@ -18,7 +18,7 @@ export const Saved = ({ activity, accessibility, id, link, participants, price, 
 
   return (
     <section className='saved-area'>
-      {savedActivities.length === 0 && <div className='no-saved'><h4>You have no save activities yet...</h4></div>  }
+      {savedActivities.length === 0 && <div className='no-saved'><h4>You have no saved activities yet...</h4></div>  }
       
       <div className='saved'>
         {savedActs}

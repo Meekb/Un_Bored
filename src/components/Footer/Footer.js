@@ -9,10 +9,10 @@ export const Footer = ({ setSavedView, setSearch }) => {
     <div className='footer'>
 
       <NavLink to='/Saved'>
-        <button className='saved-btn' onClick={() => setSavedView(true)}>Saved Activities</button>
+        <button className='saved-btn' onClick={() => setSavedView(true)}>Saved</button>
       </NavLink>
 
-      <button className='showcase-btn'>Showcase</button>
+      <button className='showcase-btn'>Showcased</button>
 
       <NavLink to='/'>
         <img src={homeIcon} alt='Go Home' className='home-icon' onClick={() => setSearch(false)} />
