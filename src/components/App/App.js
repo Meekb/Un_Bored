@@ -39,7 +39,14 @@ export const App = () => {
   }
 
   const sendToSaved = (newActivity) => {
-    setSavedActivities([...savedActivities, newActivity]);
+
+    if (savedActivities.find(activity => {
+      return activity.key === newActivity.key;
+    })) {
+      return
+    } else {
+      setSavedActivities([...savedActivities, newActivity]);
+    }   
   }
 
   useEffect(() => {
