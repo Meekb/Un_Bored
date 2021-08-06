@@ -39,14 +39,12 @@ export const App = () => {
   }
 
   const sendToSaved = (newActivity) => {
-
-    if (savedActivities.find(activity => {
-      return activity.key === newActivity.key;
-    })) {
-      return
+    let included = savedActivities.find(act => act.id === newActivity.id)
+    if (included) {
+      return;
     } else {
-      setSavedActivities([...savedActivities, newActivity]);
-    }   
+      setSavedActivities([...savedActivities, newActivity])
+    }
   }
 
   useEffect(() => {
@@ -113,7 +111,8 @@ export const App = () => {
         />
       </Switch>
 
-      <Route render={() => <Activity
+      <Route render={() => 
+        <Activity
            key={suggestedActivity.key} 
            id={suggestedActivity.key} 
            activity={suggestedActivity.activity} 
@@ -121,7 +120,8 @@ export const App = () => {
            participants={suggestedActivity.participants} 
            price={suggestedActivity.price} 
            link={suggestedActivity.link} 
-           accessibility={suggestedActivity.accessibility} 
+           accessibility={suggestedActivity.accessibility}
+           savedView={savedView} 
            sendToSaved={sendToSaved}
            search={search}
            suggestedActivity={suggestedActivity}
@@ -130,7 +130,7 @@ export const App = () => {
         />
 
 
-      <Footer setSavedView={setSavedView} setSearch={setSearch} />
+      <Footer savedView={savedView} setSavedView={setSavedView} setSearch={setSearch} />
     </main>
   );
 }

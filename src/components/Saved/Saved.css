@@ -6,4 +6,13 @@
 
 .no-saved {
   text-align: center;
+  font-size: 25px;
+}
+
+.saved-area {
+  overflow: scroll;
+}
+
+.complete-btn {
+  font-size: 18px;
 }

@@ -34,9 +34,9 @@ export const Form = ({ generateActivity, search, setSearchCategory, suggestedAct
         </select>
         <p>Warning: Leaving blank will result in a randomly generated activity which may be considered productive</p>
         <div>
-          <NavLink to={`/${suggestedActivity.type}${suggestedActivity.key}`}>
+          {/* <NavLink to='/Activity'> */}
             <button type='button' className='do-a-thing' onClick={(e) => submitSearch(e)}>Do A Thing</button>
-          </NavLink>
+          {/* </NavLink> */}
         </div>
       </form> : null
       }
