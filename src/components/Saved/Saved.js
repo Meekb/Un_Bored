@@ -11,14 +11,19 @@ export const Saved = ({ activity, accessibility, id, link, participants, price, 
         <p>Participants: {activity.participants}</p>
         {activity.price === 0 ? <p>FREE!</p> : <p>${activity.price}</p>}
         {activity.link ? <a href={activity.link} src={activity.link} /> : null}
-        <button>Complete and Showcase</button>
+        <button className='complete-btn'>Complete and Showcase</button>
       </div>
     );
   });
 
   return (
-    <section>
-      {savedView ? {savedActs} : null}
+    <section className='saved-area'>
+      {savedActivities.length === 0 && <div className='no-saved'><h4>You have no saved activities yet...</h4></div>  }
+      
+      <div className='saved'>
+        {savedActs}
+      </div>
+
     </section>
   );
 }

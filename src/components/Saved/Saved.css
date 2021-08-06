@@ -1,0 +1,18 @@
+.saved {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+}
+
+.no-saved {
+  text-align: center;
+  font-size: 25px;
+}
+
+.saved-area {
+  overflow: scroll;
+}
+
+.complete-btn {
+  font-size: 18px;
+}

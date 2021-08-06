@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, link, accessibility, sendToSaved }) => {
+export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, search, sendToSaved }) => {
 
   const saveActivityInfo = (e) => {
     e.preventDefault()
@@ -13,6 +13,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
       price: price, 
       link: link, 
       accessibility: accessibility};
+      console.log(infoToSave)
     sendToSaved(infoToSave)
   }
   
@@ -60,21 +61,25 @@ export const Activity = ({ activity, id, type, participants, price, link, access
     }
 
     return (
-      <p>{display}</p>
+      <p className='display'>{display}</p>
     );
   }
 
   return (
-    <section>
-      <div key={id} id={id}>
-        <h2>{activity}!</h2>
-        <p>Category: {type}</p>
-        <p>Participants: {participants}</p>
-        {price === 0 ? <p>FREE!</p> : <p>${price}</p>}
-        {link ? <a href={link} src={link} /> : null}
-        {displayAccessibility(accessibility)}
-        <button onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
-      </div>
+    <section className='generated-activity'>
+        
+        {(search && !savedView) ? 
+        <div className='activity-card' key={id} id={id}>
+          <h2>{activity}!</h2>
+          <p>Category: {type}</p>
+          <p>Participants: {participants}</p>
+          {price === 0 ? <p>FREE!</p> : <p>${price}</p>}
+          {link ? <a href={link} src={link} /> : null}
+          {displayAccessibility(accessibility)}
+          <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
+        </div> : null
+        }
+        
     </section>
   );  
 }

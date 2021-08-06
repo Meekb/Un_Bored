@@ -1,5 +1,6 @@
 form {
   font-family: 'Space Mono', monospace;
+  /* position: static; */
 }
 
 label {
@@ -12,15 +13,19 @@ select {
   font-size: 22px;
 }
 
-.activity {
-  margin-right: 35px;
-}
-
 button {
   font-family: 'Space Mono', monospace;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 25px;
+  margin-top: 55px;
   padding: 15px;
   border-radius: 3rem;
+}
+
+.activity {
+  margin-right: 35px;
+}
+
+.do-a-thing {
+  margin-top: 55px;
 }

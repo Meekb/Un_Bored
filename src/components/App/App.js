@@ -3,7 +3,7 @@ import { Activity } from '../Activity/Activity';
 import { Form } from '../Form/Form';
 import { Footer } from '../Footer/Footer';
 import { Saved } from '../Saved/Saved'
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import { fetchActivity } from '../../apiCalls';
 import './App.css';
 
@@ -30,45 +30,73 @@ export const App = () => {
     .then(
       (activityData) => {
         console.log(activityData);
-        setSearch(true)
         setSuggestedActivity(activityData)
         setLoading(false)
+        setSearch(true)
       }
     )
     .catch(error => setErrorCode(error.message))   // error component for 
   }
 
   const sendToSaved = (newActivity) => {
-    setSavedActivities([...savedActivities, newActivity]);
-    console.log(savedActivities)
+    let included = savedActivities.find(act => act.id === newActivity.id)
+    if (included) {
+      return;
+    } else {
+      setSavedActivities([...savedActivities, newActivity])
+    }
   }
 
   useEffect(() => {
     console.log(savedActivities);
   })
 
-// conditionally rendering - needs refactor 
-
   return (  
     <main className="App">
-      <header className="App-header">
-        <Link 
+
+      <header className="app-header">
+        <NavLink 
           to='/'
           style={{ textDecoration: 'none' }}
           onClick={() => setSearch(false)}
         >
           <h1>GET Un-Bored</h1>
-        </Link>
+          <h2 className='sub'>The Activity Generator For Indecisive Humans</h2>
+        </NavLink>
       </header>
       
-      {suggestedActivity.length === 0 ? <h3>Loading... </h3> : null}
-
-      {search && suggestedActivity.length !== 0 ? <Activity exact path={`type=${suggestedActivity.type}`} id={suggestedActivity.key} activity={suggestedActivity.activity} type={suggestedActivity.type} participants={suggestedActivity.participants} price={suggestedActivity.price} link={suggestedActivity.link} accessibility={suggestedActivity.accessibility} sendToSaved={sendToSaved} /> : <h3>Pick a category and generate something to do...</h3> }
-
-
       <Switch>
+        <Route exact path={`/${suggestedActivity.type}${suggestedActivity.key}`} render={() => <Activity
+           key={suggestedActivity.key} 
+           id={suggestedActivity.key} 
+           activity={suggestedActivity.activity} 
+           type={suggestedActivity.type} 
+           participants={suggestedActivity.participants} 
+           price={suggestedActivity.price} 
+           link={suggestedActivity.link} 
+           accessibility={suggestedActivity.accessibility} 
+           sendToSaved={sendToSaved}
+           search={search}
+           suggestedActivity={suggestedActivity}
+           />} />
+        <Route
+          exact path='/Saved' 
+          render={() => 
+          <Saved
+            id={suggestedActivity.key}
+            activity={suggestedActivity.activity}
+            type={suggestedActivity.type}
+            participants={suggestedActivity.participants}
+            price={suggestedActivity.price}
+            link={suggestedActivity.link}
+            accessibility={suggestedActivity.accessibility} 
+            savedActivities={savedActivities}
+            savedView={savedView}
+          />
+        } 
+        />  
         <Route 
-          exact path='/' 
+          path='/' 
           render={() => 
             <Form 
               search={search} 
@@ -76,28 +104,33 @@ export const App = () => {
               setSearch={setSearch} 
               setSearchCategory={setSearchCategory} 
               searchCategory={searchCategory}
+              suggestedActivity={suggestedActivity}
               loading={loading} 
             />
           }
         />
-        <Route
-          exact path='/Saved' 
-          render={() => <Saved
-          id={suggestedActivity.key}
-          activity={suggestedActivity.activity}
-          type={suggestedActivity.type}
-          participants={suggestedActivity.participants}
-          price={suggestedActivity.price}
-          link={suggestedActivity.link}
-          accessibility={suggestedActivity.accessibility} 
-          savedActivities={[savedActivities]}
-          savedView={savedView}
-        />} />  
-
       </Switch>
 
-      <Footer savedView={savedView} setSavedView={setSavedView} />
+      <Route render={() => 
+        <Activity
+           key={suggestedActivity.key} 
+           id={suggestedActivity.key} 
+           activity={suggestedActivity.activity} 
+           type={suggestedActivity.type} 
+           participants={suggestedActivity.participants} 
+           price={suggestedActivity.price} 
+           link={suggestedActivity.link} 
+           accessibility={suggestedActivity.accessibility}
+           savedView={savedView} 
+           sendToSaved={sendToSaved}
+           search={search}
+           suggestedActivity={suggestedActivity}
+           />
+          }
+        />
 
+
+      <Footer savedView={savedView} setSavedView={setSavedView} setSearch={setSearch} />
     </main>
   );
 }
