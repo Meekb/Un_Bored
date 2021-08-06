@@ -60,14 +60,15 @@ export const Activity = ({ activity, id, type, participants, price, link, access
     }
 
     return (
-      <p>{display}</p>
+      <p className='display'>{display}</p>
     );
   }
 
   return (
     <section className='generated-activity'>
-
-        <div key={id} id={id}>
+        
+        {search &&
+        <div className='activity-card' key={id} id={id}>
           <h2>{activity}!</h2>
           <p>Category: {type}</p>
           <p>Participants: {participants}</p>
@@ -76,6 +77,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
           {displayAccessibility(accessibility)}
           <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
         </div>
+        }
         
     </section>
   );  

@@ -1,5 +1,6 @@
 form {
   font-family: 'Space Mono', monospace;
+  /* position: static; */
 }
 
 label {

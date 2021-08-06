@@ -56,7 +56,7 @@ export const App = () => {
   return (  
     <main className="App">
 
-      <header className="App-header">
+      <header className="app-header">
         <NavLink 
           to='/'
           style={{ textDecoration: 'none' }}
