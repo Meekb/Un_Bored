@@ -1,3 +1,3 @@
 # GET Un-Bored 
-## An activity generator for indecisive people
+## Activity Generator for Indecisive Humans
 
