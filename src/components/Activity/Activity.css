@@ -1,22 +1,29 @@
 .generated-activity {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 22px;
   color: #000000;
-  width: 55%;
-  overflow: scroll;
+  /* width: 55%; */
+  margin-top: 100px;
 }
 
 .activity-card {
   border: 3px solid black; 
   padding: 20px;
-  overflow: scroll;
+  min-width: 65%;
+  /* max-width: 45%; */
 }
 
 .display {
   overflow: scroll;
+}
+
+.now-go {
+  margin-top: 75px;
+}
+.now-go p{
+  font-size: 22px;
 }
 
 .save-btn {

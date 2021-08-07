@@ -1,0 +1,59 @@
+header {
+  background-color: #956eba;
+  border-bottom: 4px solid #956eba;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  /* align-items: space-around; */
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.app-name {
+  font-family: 'Space Mono', monospace; 
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
+.home-icon {
+  width: 13%;
+}
+
+.home-icon:hover {
+  background-color: chartreuse;
+}
+
+.nav-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saved-btn {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.showcase-btn {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}

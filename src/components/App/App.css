@@ -1,18 +1,8 @@
 .App {
   text-align: center;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-family: 'Space Mono', monospace; 
-  font-size: 85px;
-  margin-bottom: 0;
-}
-
-.sub {
-  margin-bottom: 50px;
-}
-
-/* .app-header {
-  
-} */

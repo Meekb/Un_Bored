@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, search, sendToSaved }) => {
+export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, search, sendToSaved, suggestedActivity }) => {
 
-  const saveActivityInfo = (e) => {
+  const saveActivityInfo = (e) => { 
     e.preventDefault()
-    const infoToSave = { 
-      id: id,
+    const infoToSave = {
       activity: activity, 
       type: type, 
       participants: participants, 
       price: price, 
       link: link, 
-      accessibility: accessibility};
-      console.log(infoToSave)
+      key: id,
+      accessibility: accessibility,
+    };
+    console.log('INFO TO SAVE:', infoToSave)
     sendToSaved(infoToSave)
   }
   
@@ -57,7 +59,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
         display = options.veryDifficult
         break 
       default:
-        display = 'Go get em\', tiger!' 
+        display = 'Go get em, tiger!' 
     }
 
     return (
@@ -65,11 +67,19 @@ export const Activity = ({ activity, id, type, participants, price, link, access
     );
   }
 
+  if (suggestedActivity.length === 0 && search) {
+    return (
+      <section className='now-go'>
+        <p>Now go complete a saved activity!</p>
+      </section>
+    );
+  }
+
   return (
     <section className='generated-activity'>
         
         {(search && !savedView) ? 
-        <div className='activity-card' key={id} id={id}>
+        <div className='activity-card' key={id}>
           <h2>{activity}!</h2>
           <p>Category: {type}</p>
           <p>Participants: {participants}</p>

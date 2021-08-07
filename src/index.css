@@ -3,6 +3,10 @@ body {
   font-family: 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 400px;
+  margin-bottom: 100px;
+  clear: both;
+  min-height: 100%;
 }
 
 code {
