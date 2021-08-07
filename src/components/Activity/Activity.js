@@ -15,7 +15,6 @@ export const Activity = ({ activity, id, type, participants, price, link, access
       key: id,
       accessibility: accessibility,
     };
-    console.log('INFO TO SAVE:', infoToSave)
     sendToSaved(infoToSave)
   }
   

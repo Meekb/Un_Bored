@@ -31,7 +31,6 @@ export const App = () => {
     fetchActivity(endpath)
     .then(
       (activityData) => {
-        console.log('FETCHED DATA', activityData);
         setSuggestedActivity(activityData)
         setLoading(false)
         setSearch(true)
@@ -59,29 +58,22 @@ export const App = () => {
     if (!showcasedActivities.length) {
       setShowcasedActivities([completedActivity]);
       deleteActivity(key);
-      // console.log(showcasedActivities)
+      setShowcaseView(true)
+      setSearch(false)
+      setSavedView(false) 
       return;
     }
+    completedActivity[0].dateCompleted = new Date;
     setShowcasedActivities([completedActivity, ...showcasedActivities]);
-    deleteActivity(key); 
+    deleteActivity(key);
+    setShowcaseView(true)
+    setSearch(false)
+    setSavedView(false)  
     // console.log(showcasedActivities)
   }
 
   useEffect(() => {
-    // const fetchTest = async (endpoint) => {
-    //   const response = await fetch('http://www.boredapi.com/api/activity?key')
-    //   return checkForError(response);
-    // }
-    
-    // const checkForError = (response) => {
-    //   console.log(response)
-    //   // if (response.ok) {
-    //   //   return response.json()  
-    //   // } else {
-    //   //   throw new Error('UH OH! Something has gone horribly wrong!!!')
-    //   // }
-    // }
-    // fetchTest('');
+
   })
   
 
@@ -116,6 +108,8 @@ export const App = () => {
               <Showcase
                 showcasedActivities={showcasedActivities} 
                 showcaseView={showcaseView}
+                setSearch={setSearch}
+                setSavedView={setSavedView}
               />
             } 
           />
@@ -128,6 +122,7 @@ export const App = () => {
                 deleteActivity={deleteActivity} 
                 savedActivities={savedActivities}
                 setSavedView={setSavedView}
+                showcaseView={showcaseView}
               />
             } 
             />  
@@ -180,7 +175,7 @@ export const App = () => {
         />
     </main>
   </section>
-  );
+    );
 }
 
 

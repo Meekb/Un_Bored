@@ -1,9 +1,11 @@
 import React from 'react';
 import './Showcase.css';
 
-export const Showcase = ({ showcaseView, showcasedActivities }) => {
+export const Showcase = ({ setSavedView, setSearch, showcaseView, showcasedActivities }) => {
+
 
   const showCards = () => {
+
     const cards = showcasedActivities.map(card => {
       return (
         <div>

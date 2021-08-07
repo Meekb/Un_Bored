@@ -6,7 +6,7 @@ import homeIcon from '../../images/homeIcon.svg';
 export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) => {
 
   useEffect(() => {
-    console.log('SavedView', savedView)
+
   })
 
   const changeViewToHome = () => {
@@ -25,6 +25,7 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
   }
 
   const changeViewToShowcase = () => {
+    console.log('click')
     setSearch(false);
     setSavedView(false);
     setShowcaseView(true);
@@ -45,27 +46,21 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
       </div>
 
 
-
       <div className='nav-btns'>
-        
         <NavLink to='/Saved'>
           <button className='saved-btn' onClick={() => changeViewToSaved()}>Saved</button>
         </NavLink>
-        
-        <button className='showcase-btn'>Showcase</button>
+
+        <NavLink to='/Showcase'>
+          <button className='showcase-btn' onClick={() => changeViewToShowcase()}>Showcase</button>
+        </NavLink>
         
         <div className='home-img'>
           <NavLink to='/'>
             <img src={homeIcon} alt='Go Home' className='home-icon' onClick={() => changeViewToHome()} />
           </NavLink>
-        </div>
-      
+        </div>    
       </div>
-
-
-
-
-
 
     </section>
   );
