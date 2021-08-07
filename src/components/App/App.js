@@ -60,7 +60,7 @@ export const App = () => {
       deleteActivity(key);
       setShowcaseView(true)
       setSearch(false)
-      setSavedView(false) 
+      setSavedView(false)
       return;
     }
     completedActivity[0].dateCompleted = new Date;
@@ -69,7 +69,6 @@ export const App = () => {
     setShowcaseView(true)
     setSearch(false)
     setSavedView(false)  
-    // console.log(showcasedActivities)
   }
 
   useEffect(() => {

@@ -20,7 +20,7 @@ export const Saved = ({ completeActivity, deleteActivity, id, savedActivities, s
   return (
     <section className='saved'>
         <div className='no-saved-text'>
-          {(savedActivities.length === 0 && !showcaseView) && <div className='no-saved'><h4>You have no saved activities...</h4></div>  }
+          {(savedActivities.length === 0 && !showcaseView) ? <div className='no-saved'><h4>You have no saved activities...</h4></div> : null }
         </div>
       <section className='saved-area'>
         {savedActs}

@@ -22,7 +22,6 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
   }
 
   const changeViewToShowcase = () => {
-    console.log('click')
     setSearch(false);
     setSavedView(false);
     setShowcaseView(true);
