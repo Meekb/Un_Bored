@@ -61,4 +61,8 @@ describe('Home screen flow', () => {
       .should('have.value', 'busywork')
   });
 
+  it('Should have a Do A Thing button to submit for an activity suggestion', () => {
+    cy.get('form').find('button').contains('Do A Thing')
+  });
+
 });

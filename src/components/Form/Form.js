@@ -36,7 +36,7 @@ export const Form = ({ generateActivity, savedView, search, setSearchCategory, s
         <div>
           {/* <NavLink to='/Activity/'> */}
             <button 
-              type='button' 
+              type='submit' 
               className='do-a-thing' 
               onClick={(e) => submitSearch(e)}>Do A Thing</button>
           {/* </NavLink> */}
