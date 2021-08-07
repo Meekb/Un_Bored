@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import './Form.css'
 
-export const Form = ({ generateActivity, search, setSearchCategory, suggestedActivity }) => {
+export const Form = ({ generateActivity, savedView, search, setSearchCategory, suggestedActivity }) => {
 
   const [category, setCategory] = useState('');
 
@@ -17,7 +17,7 @@ export const Form = ({ generateActivity, search, setSearchCategory, suggestedAct
 
   return (
     <section>
-      {!search ?
+      {(!search && !savedView) ?
       <form>
         <label>Category:</label>
         <select className='activity' onChange={(e) => setCategory(e.target.value)}>
@@ -32,10 +32,13 @@ export const Form = ({ generateActivity, search, setSearchCategory, suggestedAct
           <option value='music'>Music</option>
           <option value='busywork'>Busywork</option>
         </select>
-        <p>Warning: Leaving blank will result in a randomly generated activity which may be considered productive</p>
+        <p className='warning'>WARNING: Leaving blank will result in a randomly generated activity which may be considered productive</p>
         <div>
-          {/* <NavLink to='/Activity'> */}
-            <button type='button' className='do-a-thing' onClick={(e) => submitSearch(e)}>Do A Thing</button>
+          {/* <NavLink to='/Activity/'> */}
+            <button 
+              type='button' 
+              className='do-a-thing' 
+              onClick={(e) => submitSearch(e)}>Do A Thing</button>
           {/* </NavLink> */}
         </div>
       </form> : null

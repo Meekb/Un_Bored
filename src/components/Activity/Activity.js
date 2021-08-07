@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './Activity.css';
 
 export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, search, sendToSaved, suggestedActivity }) => {
@@ -69,7 +68,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
   if (suggestedActivity.length === 0 && search) {
     return (
       <section className='now-go'>
-        <p>Now go complete a saved activity!</p>
+        <p>Let's go complete a saved activity!</p>
       </section>
     );
   }

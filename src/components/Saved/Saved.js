@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Saved.css';
 
-export const Saved = ({ completeActivity, deleteActivity, id, savedActivities, showcaseView }) => {
+export const Saved = ({ checkSavedView, completeActivity, deleteActivity, id, savedActivities, showcaseView }) => {
+
+  useEffect(() => {
+    checkSavedView()
+  })
 
   const savedActs = savedActivities.map(activity => {
     return (

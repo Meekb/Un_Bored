@@ -32,7 +32,7 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
 
       <div className='title'> 
         <NavLink 
-            to='/'
+            to='/Home'
             style={{ textDecoration: 'none' }}
             onClick={() => changeViewFromLogo()}
           >
@@ -52,7 +52,7 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
         </NavLink>
         
         <div className='home-img'>
-          <NavLink to='/'>
+          <NavLink to='/Home'>
             <img src={homeIcon} alt='Go Home' className='home-icon' onClick={() => changeViewToHome()} />
           </NavLink>
         </div>    
