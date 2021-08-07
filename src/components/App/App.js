@@ -68,7 +68,20 @@ export const App = () => {
   }
 
   useEffect(() => {
-
+    // const fetchTest = async (endpoint) => {
+    //   const response = await fetch('http://www.boredapi.com/api/activity?key')
+    //   return checkForError(response);
+    // }
+    
+    // const checkForError = (response) => {
+    //   console.log(response)
+    //   // if (response.ok) {
+    //   //   return response.json()  
+    //   // } else {
+    //   //   throw new Error('UH OH! Something has gone horribly wrong!!!')
+    //   // }
+    // }
+    // fetchTest('');
   })
   
 
