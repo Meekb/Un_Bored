@@ -1,6 +1,6 @@
 header {
-  background-color: #956eba;
-  border-bottom: 4px solid #956eba;
+  background-color: #c19ae4;
+  border-bottom: 2px solid #956eba;
   position: sticky;
   top: 0;
   width: 100%;
@@ -15,7 +15,6 @@ header {
 .header {
   display: flex;
   flex-direction: column;
-  /* align-items: space-around; */
   justify-content: center;
 }
 
@@ -29,31 +28,39 @@ header {
 
 .app-name {
   font-family: 'Space Mono', monospace; 
-  font-size: 35px;
+  font-size: 45px;
   margin-bottom: 0;
 }
 
 .home-icon {
-  width: 13%;
+  width: 20%;
+  margin-top: 50px;
+  /* margin-left: 20px; */
+  position: sticky;
+  transition: all .2s ease-in-out;
 }
 
 .home-icon:hover {
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
+  transform: scale(1.20);
 }
 
 .nav-btns {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .saved-btn {
   font-size: 20px;
   margin-right: 20px;
+  margin-bottom: 15px;
+  margin-left: 45px;
 }
 
 .showcase-btn {
   font-size: 20px;
+  /* margin-right: 25px; */
+  margin-bottom: 15px;
   margin-left: 20px;
-  margin-bottom: 20px;
 }

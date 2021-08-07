@@ -34,3 +34,9 @@ button {
 .do-a-thing {
   margin-top: 55px;
 }
+
+.warning {
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
+}

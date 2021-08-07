@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import './Saved.css';
 
-export const Saved = ({ completeActivity, deleteActivity, id, savedActivities }) => {
+export const Saved = ({ checkSavedView, completeActivity, deleteActivity, id, savedActivities, showcaseView }) => {
+
+  useEffect(() => {
+    checkSavedView()
+  })
 
   const savedActs = savedActivities.map(activity => {
-    console.log('KEY=', activity.key)
     return (
       <div className='saved-card' key={activity.key} id={activity.key}>
         <h2>{activity.activity}!</h2>
@@ -21,7 +24,7 @@ export const Saved = ({ completeActivity, deleteActivity, id, savedActivities })
   return (
     <section className='saved'>
         <div className='no-saved-text'>
-          {savedActivities.length === 0 && <div className='no-saved'><h4>You have no saved activities...</h4></div>  }
+          {(savedActivities.length === 0 && !showcaseView) ? <div className='no-saved'><h4>You have no saved activities...</h4></div> : null }
         </div>
       <section className='saved-area'>
         {savedActs}

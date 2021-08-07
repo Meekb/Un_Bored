@@ -4,7 +4,7 @@ import { Form } from '../Form/Form';
 import { Header } from '../Header/Header';
 import { Saved } from '../Saved/Saved'
 import { Showcase } from '../Showcase/Showcase';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { fetchActivity } from '../../apiCalls';
 import './App.css';
 
@@ -31,13 +31,12 @@ export const App = () => {
     fetchActivity(endpath)
     .then(
       (activityData) => {
-        console.log('FETCHED DATA', activityData);
         setSuggestedActivity(activityData)
         setLoading(false)
         setSearch(true)
-      }
+      },
     )
-    .catch(error => setErrorCode(error.message))   // error component for 
+    .catch(error => setErrorCode(error.message))
   }
 
   const sendToSaved = (newActivity) => {
@@ -55,36 +54,32 @@ export const App = () => {
   }
 
   const completeActivity = (key) => {
+    const dateToFormat = new Date().toString().split(' ')
     const completedActivity = savedActivities.filter(saved => saved.key === key);
     if (!showcasedActivities.length) {
-      setShowcasedActivities([completedActivity]);
-      deleteActivity(key);
-      // console.log(showcasedActivities)
-      return;
+      completedActivity[0].dateCompleted = `${dateToFormat[0]} ${dateToFormat[1]} ${dateToFormat[2]} ${dateToFormat[3]} ${dateToFormat[4]}`
+      setShowcasedActivities([completedActivity])
+      deleteActivity(key)
+      setSearch(false)
+      setSavedView(false)
+      setShowcaseView(true)
+      return
     }
-    setShowcasedActivities([completedActivity, ...showcasedActivities]);
-    deleteActivity(key); 
-    // console.log(showcasedActivities)
+    completedActivity[0].dateCompleted = `${dateToFormat[0]} ${dateToFormat[1]} ${dateToFormat[2]} ${dateToFormat[3]} ${dateToFormat[4]}`
+    setShowcasedActivities([completedActivity, ...showcasedActivities])
+    deleteActivity(key)
+    setSearch(false)
+    setSavedView(false)  
+    setShowcaseView(true)
   }
 
-  useEffect(() => {
-    // const fetchTest = async (endpoint) => {
-    //   const response = await fetch('http://www.boredapi.com/api/activity?key')
-    //   return checkForError(response);
-    // }
-    
-    // const checkForError = (response) => {
-    //   console.log(response)
-    //   // if (response.ok) {
-    //   //   return response.json()  
-    //   // } else {
-    //   //   throw new Error('UH OH! Something has gone horribly wrong!!!')
-    //   // }
-    // }
-    // fetchTest('');
-  })
+  const checkSavedView = () => {
+    if (savedActivities.length === 0) {
+      setSavedView(true)
+      setShowcaseView(false)
+    }
+  }
   
-
 
   return (  
 
@@ -96,26 +91,31 @@ export const App = () => {
       </header>
       
       <main className="App">
+
         <Switch>
-          {/* <Route exact path={`/${suggestedActivity.type}${suggestedActivity.key}`} render={() => 
-            <Activity
-              key={suggestedActivity.key} 
-              activity={suggestedActivity.activity} 
-              type={suggestedActivity.type} 
-              participants={suggestedActivity.participants} 
-              price={suggestedActivity.price} 
-              link={suggestedActivity.link} 
-              accessibility={suggestedActivity.accessibility} 
-              sendToSaved={sendToSaved}
-              search={search}
-              suggestedActivity={suggestedActivity}
-            />} /> */}
+          <Route 
+            exact path='/Home' 
+            render={() => 
+              <Form
+                savedView={savedView} 
+                search={search} 
+                generateActivity={generateActivity} 
+                setSearch={setSearch} 
+                setSearchCategory={setSearchCategory} 
+                searchCategory={searchCategory}
+                suggestedActivity={suggestedActivity}
+                loading={loading} 
+              />
+            }
+          />
           <Route
             exact path='/Showcase'
             render={() => 
               <Showcase
                 showcasedActivities={showcasedActivities} 
                 showcaseView={showcaseView}
+                setSearch={setSearch}
+                setSavedView={setSavedView}
               />
             } 
           />
@@ -128,40 +128,16 @@ export const App = () => {
                 deleteActivity={deleteActivity} 
                 savedActivities={savedActivities}
                 setSavedView={setSavedView}
+                showcaseView={showcaseView}
+                checkSavedView={checkSavedView}
               />
             } 
-            />  
-          <Route 
-            path='/' 
-            render={() => 
-              <Form 
-                search={search} 
-                generateActivity={generateActivity} 
-                setSearch={setSearch} 
-                setSearchCategory={setSearchCategory} 
-                searchCategory={searchCategory}
-                suggestedActivity={suggestedActivity}
-                loading={loading} 
-              />
-            }
-            />
+          />  
         </Switch>
 
-        {/* <Route exact path={`/${suggestedActivity.type}${suggestedActivity.key}`} render={() => 
-            <Activity
-              key={suggestedActivity.key} 
-              activity={suggestedActivity.activity} 
-              type={suggestedActivity.type} 
-              participants={suggestedActivity.participants} 
-              price={suggestedActivity.price} 
-              link={suggestedActivity.link} 
-              accessibility={suggestedActivity.accessibility} 
-              sendToSaved={sendToSaved}
-              search={search}
-              suggestedActivity={suggestedActivity}
-            />} /> */}
-
-        <Route render={() => 
+{/* working route without url changing */}
+        <Route
+          render={() => 
           <Activity
             id={suggestedActivity.key} 
             activity={suggestedActivity.activity} 
@@ -180,7 +156,7 @@ export const App = () => {
         />
     </main>
   </section>
-  );
+    );
 }
 
 
