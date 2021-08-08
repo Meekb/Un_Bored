@@ -36,7 +36,6 @@
   .generated-activity {
     font-size: 16px;
   }
-
   .activity-card {
     width: 530px;
     height: 400px;
@@ -45,4 +44,14 @@
     font-size: 18px;
     margin-bottom: 250px;
   }
+}
+
+@media only screen and (max-width: 480px) {
+  .activity-card {
+    width: 255px;
+    height: 525px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
 }
