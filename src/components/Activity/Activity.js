@@ -68,7 +68,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
   if (suggestedActivity.length === 0 && search) {
     return (
       <section className='now-go'>
-        <p>Let's go complete a saved activity!</p>
+        <p className='now-go'>Now go complete a saved activity!</p>
       </section>
     );
   }
@@ -81,7 +81,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
           <h2>{activity}!</h2>
           <p>Category: {type}</p>
           <p>Participants: {participants}</p>
-          {price === 0 ? <p>FREE!</p> : <p>${price}</p>}
+          {price === 0 ? <p>FREE!</p> : <p>${(price * 10).toFixed(2)}</p>}
           {link ? <a href={link} src={link} /> : null}
           {displayAccessibility(accessibility)}
           <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>

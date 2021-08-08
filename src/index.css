@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Space Mono', monospace;
@@ -5,7 +6,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 400px;
   /* margin-bottom: 100px; */
-  background-color: grey;
+  background-image: url('../src/images/susan-wilkinson-1CqxdQ932eo-unsplash.jpg');
+  background-size: cover;
+  /* height: 100%; */
 }
 
 code {

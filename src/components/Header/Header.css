@@ -1,6 +1,7 @@
 header {
   background-color: #c19ae4;
-  border-bottom: 2px solid #956eba;
+  opacity: 95%;
+  border-bottom: 2px solid #858383;
   position: sticky;
   top: 0;
   width: 100%;
@@ -35,14 +36,14 @@ header {
 .home-icon {
   width: 20%;
   margin-top: 50px;
-  /* margin-left: 20px; */
   position: sticky;
   transition: all .2s ease-in-out;
 }
 
 .home-icon:hover {
-  /* background-color: chartreuse; */
-  transform: scale(1.20);
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px 0px #80f688;
+  border-radius: 25px;
 }
 
 .nav-btns {
@@ -60,7 +61,54 @@ header {
 
 .showcase-btn {
   font-size: 20px;
-  /* margin-right: 25px; */
   margin-bottom: 15px;
   margin-left: 20px;
+}
+
+
+@media only screen and (max-width: 1025px) {
+  .app-name {
+    font-size: 35px;
+  }
+
+  .saved-btn,
+  .showcase-btn {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    height: 11rem;
+  }
+  img {
+    width: 28%;
+    margin-bottom: 56px;
+  }
+  .app-name {
+    font-size: 45px;
+  }
+
+  .saved-btn,
+  .showcase-btn {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .app-name {
+    font-size: 38px;
+  }
+  .home-icon {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .app-name {
+    font-size: 30px;
+  }
+  .home-icon {
+    width: 75%;
+  }
 }

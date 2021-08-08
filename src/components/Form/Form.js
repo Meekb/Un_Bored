@@ -32,7 +32,7 @@ export const Form = ({ generateActivity, savedView, search, setSearchCategory, s
           <option value='music'>Music</option>
           <option value='busywork'>Busywork</option>
         </select>
-        <p className='warning'>WARNING: Leaving blank will result in a randomly generated activity which may be considered productive</p>
+        <p className='warning'>WARNING: No category will result in a randomly generated activity which may be considered productive</p>
         <div>
           {/* <NavLink to='/Activity/'> */}
             <button 

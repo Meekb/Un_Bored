@@ -5,7 +5,6 @@ import homeIcon from '../../images/homeIcon.svg';
 
 export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) => {
 
-
   const changeViewToHome = () => {
     setSavedView(false)
     setSearch(false)

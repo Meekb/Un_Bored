@@ -13,7 +13,7 @@ export const Saved = ({ checkSavedView, completeActivity, deleteActivity, id, sa
         <h2>{activity.activity}!</h2>
         <p>Category: {activity.type}</p>
         <p>Participants: {activity.participants}</p>
-        {activity.price === 0 ? <p>FREE!</p> : <p>${activity.price}</p>}
+        {activity.price === 0 ? <p>FREE!</p> : <p>${(activity.price * 10).toFixed(2)}</p>}
         {activity.link ? <a href={activity.link} src={activity.link} /> : null}
         <button className='complete-btn' onClick={(e) => completeActivity(activity.key)}>Complete</button>
         <button className='delete-btn' onClick={(e) => deleteActivity(activity.key)}>Delete</button>
