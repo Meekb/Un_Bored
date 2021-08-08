@@ -6,11 +6,14 @@ form {
   align-items: center;
   position: relative;
   margin-top: 150px;
+  background-image: url('../../../src/images/susan-wilkinson-1CqxdQ932eo-unsplash.jpg') no-repeat;
+  background-size: cover;
 }
 
 label {
-  margin-right: 7px;
-  font-size: 30px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  font-size: 23px;
   font-weight: bold;
 }
 
@@ -20,11 +23,19 @@ select {
 
 button {
   font-family: 'Space Mono', monospace;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   margin-top: 55px;
   padding: 15px;
+  border: 2px solid black;
   border-radius: 3rem;
+  background: none;
+}
+
+button:hover {
+  box-shadow: 0px 0px 30px 0px #80f688;
+  background-color: #956eba;
+  color: white;
 }
 
 .activity {
@@ -35,8 +46,29 @@ button {
   margin-top: 55px;
 }
 
+.do-a-thing:hover {
+  margin-top: 55px;
+  box-shadow: 0px 0px 30px 0px #80f688;
+  background-color: #c19ae4;
+}
+
 .warning {
   color: black;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 23px;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    margin-top: 70px;
+  }
+  .warning {
+    font-size: 20px;
+  }
+  .do-a-thing {
+    margin-top: 35px;
+  }
+  .do-a-thing:hover {
+    margin-top: 35px;
+  }
 }

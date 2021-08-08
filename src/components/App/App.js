@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import { fetchActivity } from '../../apiCalls';
 import './App.css';
 
+
 export const App = () => {
 
   const [savedView, setSavedView] = useState(false);
@@ -19,7 +20,6 @@ export const App = () => {
   const [suggestedActivity, setSuggestedActivity] = useState('');
   const [errorCode, setErrorCode] = useState('');
   const [loading, setLoading] = useState(false);
-
 
   const generateActivity = (searchCategory) => {
     let endpath;
@@ -53,11 +53,15 @@ export const App = () => {
     setSavedActivities(newSavedArr);
   }
 
-  const completeActivity = (key) => {
+  const convertDate = (completedActivity) => {
     const dateToFormat = new Date().toString().split(' ')
+    completedActivity[0].dateCompleted = `${dateToFormat[0]} ${dateToFormat[1]} ${dateToFormat[2]} ${dateToFormat[3]} at ${dateToFormat[4]}`
+  }
+
+  const completeActivity = (key) => {
     const completedActivity = savedActivities.filter(saved => saved.key === key);
     if (!showcasedActivities.length) {
-      completedActivity[0].dateCompleted = `${dateToFormat[0]} ${dateToFormat[1]} ${dateToFormat[2]} ${dateToFormat[3]} ${dateToFormat[4]}`
+      convertDate(completedActivity)
       setShowcasedActivities([completedActivity])
       deleteActivity(key)
       setSearch(false)
@@ -65,7 +69,7 @@ export const App = () => {
       setShowcaseView(true)
       return
     }
-    completedActivity[0].dateCompleted = `${dateToFormat[0]} ${dateToFormat[1]} ${dateToFormat[2]} ${dateToFormat[3]} ${dateToFormat[4]}`
+    convertDate(completedActivity)
     setShowcasedActivities([completedActivity, ...showcasedActivities])
     deleteActivity(key)
     setSearch(false)
@@ -79,7 +83,6 @@ export const App = () => {
       setShowcaseView(false)
     }
   }
-  
 
   return (  
 
@@ -104,7 +107,7 @@ export const App = () => {
                 setSearchCategory={setSearchCategory} 
                 searchCategory={searchCategory}
                 suggestedActivity={suggestedActivity}
-                loading={loading} 
+                loading={loading}
               />
             }
           />
@@ -139,6 +142,7 @@ export const App = () => {
         <Route
           render={() => 
           <Activity
+            to='/Activity'
             id={suggestedActivity.key} 
             activity={suggestedActivity.activity} 
             type={suggestedActivity.type} 
