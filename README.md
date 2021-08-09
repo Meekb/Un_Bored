@@ -23,7 +23,7 @@ The suggested activity card will be displayed with a button allowing the user to
 In Saved view, users can delete any saved activity:
 ![unboredDelete](https://user-images.githubusercontent.com/76264735/128777905-f3cd630c-e05d-4e9b-9ebb-bcbd8e0efe9d.gif)
 
-In Saved view, users can choose to complete any saved activity then view completed activies in their Showcase:
+Users can choose to complete any saved activity and view completed activities in their Showcase - each displaying a timestamp of completion:
 ![unboredComplete](https://user-images.githubusercontent.com/76264735/128777992-ac4a1e75-154e-42ff-a0dd-ac94ab44c67f.gif)
 
 ## Future Improvements
