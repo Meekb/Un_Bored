@@ -3,16 +3,17 @@
 ### Front-End Project by: [Beth Meeker](https://github.com/Meekb)
 
 ## Overview
-  Have you ever been so bored that you don't know what to do? GET Un-Bored is an activity generator designed for indecisive humans. Using data from Bored API, users recieve a randomly generated activity card each time they click the DO A THING button. A drop down menu allows the choice of nine categories from which to get an activtiy, or simply leave category unselected to receive a suggestion from a random category. Users can Save the activity suggestions they like. The Saved view will allow users to Complete or Delete a saved activity. Once an activity is completed, the card is moved to the user Showcase along with a timestamp of completion. If you're feeling bored, GET Un-Bored today!
+  Have you ever been so bored that you don't know what to do? GET Un-Bored is an activity generator designed for indecisive humans. Using data from [Bored API](https://www.boredapi.com/documentation#endpoints-accessibility), users recieve a randomly generated activity card each time they click the DO A THING button. A drop down menu allows the choice of nine categories from which to get an activity, or simply leave category unselected to receive a suggestion from a random category. Users can save the activity suggestions they like. The Saved view will allow users to Complete or Delete a saved activity. Once an activity is completed, the card is moved to the user Showcase along with a timestamp of completion. If you're feeling bored, Do A Thing. GET Un-Bored today!
   
 ## Construction
   * Built with React
   * Uses strictly Functional Components with React Hooks
   * Uses State to save/delete user activities
   * React Router gives users an authentic navigation experience
-  * Fetches data from [Bored API](https://www.boredapi.com/documentation#endpoints-accessibility)
+  * Fetches data from Bored API
   * Minimal styling with plaster wall backdrop for a truly boring display
   * Completed activities are displayed with colorful animated border
+  * Categories: Education, Recreation, Social, DIY, Charity, Cooking, Relaxation, Music, Busywork
 
 From Un-Bored Home, users can generate a random activity by clicking the 'Do A Thing' button:
 ![unbored Home](https://user-images.githubusercontent.com/76264735/128777634-80d616c9-e8a3-4d6f-b768-751a169ca55d.gif)
@@ -23,8 +24,12 @@ The suggested activity card will be displayed with a button allowing the user to
 In Saved view, users can delete any saved activity:
 ![unboredDelete](https://user-images.githubusercontent.com/76264735/128777905-f3cd630c-e05d-4e9b-9ebb-bcbd8e0efe9d.gif)
 
-Users can choose to complete any saved activity and view completed activities in their Showcase - each displaying a timestamp of completion:
+Users can choose to complete a saved activity. Completed activities move to their Showcase - each displaying a timestamp of completion:
 ![unboredComplete](https://user-images.githubusercontent.com/76264735/128777992-ac4a1e75-154e-42ff-a0dd-ac94ab44c67f.gif)
+
+Navigate home from any page by click the GET Un-Bored app title:
+![unboredLogoNav](https://user-images.githubusercontent.com/76264735/128785040-598a579c-1b3c-45b8-a1fb-328f4c81ecef.gif)
+
 
 ## Future Improvements
   * Each completed activity will be clickable, allowing user to add images and comments
