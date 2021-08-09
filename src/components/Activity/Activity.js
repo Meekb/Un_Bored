@@ -1,7 +1,7 @@
 import React from 'react';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, search, sendToSaved, suggestedActivity }) => {
+export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, setSavedView, search, sendToSaved, suggestedActivity }) => {
 
   const saveActivityInfo = (e) => { 
     e.preventDefault()
@@ -14,6 +14,7 @@ export const Activity = ({ activity, id, type, participants, price, link, access
       key: id,
       accessibility: accessibility,
     };
+    setSavedView(true);
     sendToSaved(infoToSave)
   }
   
@@ -79,10 +80,10 @@ export const Activity = ({ activity, id, type, participants, price, link, access
         {(search && !savedView) ? 
         <div className='activity-card' key={id}>
           <h2>{activity}!</h2>
-          <p>Category: {type}</p>
-          <p>Participants: {participants}</p>
-          {price === 0 ? <p>FREE!</p> : <p>${(price * 10).toFixed(2)}</p>}
-          {link ? <a href={link} src={link} /> : null}
+          <p className='category'>Category: {type}</p>
+          <p className='participants'>Participants: {participants}</p>
+          {price === 0 ? <p className='cost'>Estimated cost: FREE!</p> : <p className='cost'>Estimated cost: ${(price * 10).toFixed(2)}</p>}
+          {link ? <a src={link} /> : null}
           {displayAccessibility(accessibility)}
           <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
         </div> : null

@@ -111,6 +111,27 @@ export const App = () => {
               />
             }
           />
+          {/* <Route
+            exact
+            path='/:type'
+            render={() => 
+              <Activity
+                to='/:type'
+                id={suggestedActivity.key} 
+                activity={suggestedActivity.activity} 
+                type={suggestedActivity.type} 
+                participants={suggestedActivity.participants} 
+                price={suggestedActivity.price} 
+                link={suggestedActivity.link} 
+                accessibility={suggestedActivity.accessibility}
+                savedActivities={savedActivities}
+                savedView={savedView} 
+                sendToSaved={sendToSaved}
+                search={search}
+                suggestedActivity={suggestedActivity}
+              />
+            } 
+          /> */}
           <Route
             exact path='/Showcase'
             render={() => 
@@ -140,23 +161,26 @@ export const App = () => {
 
 {/* working route without url changing */}
         <Route
+          exact
+          path={`/:${suggestedActivity.type}`}
           render={() => 
-          <Activity
-            to='/Activity'
-            id={suggestedActivity.key} 
-            activity={suggestedActivity.activity} 
-            type={suggestedActivity.type} 
-            participants={suggestedActivity.participants} 
-            price={suggestedActivity.price} 
-            link={suggestedActivity.link} 
-            accessibility={suggestedActivity.accessibility}
-            savedActivities={savedActivities}
-            savedView={savedView} 
-            sendToSaved={sendToSaved}
-            search={search}
-            suggestedActivity={suggestedActivity}
-          />
-        }
+            <Activity
+              // to='/:type'
+              id={suggestedActivity.key} 
+              activity={suggestedActivity.activity} 
+              type={suggestedActivity.type} 
+              participants={suggestedActivity.participants} 
+              price={suggestedActivity.price} 
+              link={suggestedActivity.link} 
+              accessibility={suggestedActivity.accessibility}
+              savedActivities={savedActivities}
+              savedView={savedView} 
+              sendToSaved={sendToSaved}
+              search={search}
+              suggestedActivity={suggestedActivity}
+              setSavedView={setSavedView}
+            />
+          }
         />
     </main>
   </section>
