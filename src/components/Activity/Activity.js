@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, link, accessibility, savedView, setSavedView, search, sendToSaved, suggestedActivity }) => {
+export const Activity = ({ activity, id, type, participants, price, accessibility, savedView, setSavedView, search, sendToSaved, suggestedActivity }) => {
 
   const saveActivityInfo = (e) => { 
     e.preventDefault()
@@ -10,7 +11,6 @@ export const Activity = ({ activity, id, type, participants, price, link, access
       type: type, 
       participants: participants, 
       price: price, 
-      link: link, 
       key: id,
       accessibility: accessibility,
     };
@@ -79,13 +79,14 @@ export const Activity = ({ activity, id, type, participants, price, link, access
         
         {(search && !savedView) ? 
         <div className='activity-card' key={id}>
-          <h2>{activity}!</h2>
+          <h2 className='title'>{activity}!</h2>
           <p className='category'>Category: {type}</p>
           <p className='participants'>Participants: {participants}</p>
           {price === 0 ? <p className='cost'>Estimated cost: FREE!</p> : <p className='cost'>Estimated cost: ${(price * 10).toFixed(2)}</p>}
-          {link ? <a src={link} /> : null}
           {displayAccessibility(accessibility)}
-          <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
+          <NavLink to='/:type'>
+            <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
+          </NavLink>
         </div> : null
         }
         
