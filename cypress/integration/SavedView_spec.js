@@ -45,4 +45,29 @@ describe('Saved area flow', () => {
       cy.get('.saved-card').find('button').should('have.length', 2)
   });
 
+  it('Should delete an activity cards when user clicks the delete button', () => {
+    cy.intercept('GET', 'http://www.boredapi.com/api/activity?', 
+    {
+      status: 200,
+      ok: true,
+      body: {
+        activity: 'Visit a local brewery',
+        type: 'social',
+        participants: 3,
+        price: 0.4,
+        link: 'www.example.com',
+        key: 2062530,
+        accessibility: 0.1
+      }
+    });
+    cy.visit('http://localhost:3000/Home')
+      cy.get('select').select('Social')
+      cy.get('main').find('button').click()
+      cy.get('.activity-card')
+      .find('button').click()
+      cy.get('header').find('.saved-btn').click()
+      cy.get('.saved').find('.saved-card').find('.delete-btn').click()
+      cy.get('.saved').contains('You have no saved activities...')
+  });
+
 });
