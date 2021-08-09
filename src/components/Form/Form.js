@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Form.css'
 
 export const Form = ({ generateActivity, savedView, search, setSearchCategory, suggestedActivity }) => {
@@ -34,12 +34,12 @@ export const Form = ({ generateActivity, savedView, search, setSearchCategory, s
         </select>
         <p className='warning'>WARNING: No category will result in a randomly generated activity which may be considered productive</p>
         <div>
-          {/* <NavLink to='/Activity/'> */}
+          <NavLink to={`/:${suggestedActivity.type}`}>
             <button 
               type='submit' 
               className='do-a-thing' 
               onClick={(e) => submitSearch(e)}>Do A Thing</button>
-          {/* </NavLink> */}
+          </NavLink>
         </div>
       </form> : null
       }

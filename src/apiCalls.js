@@ -5,6 +5,7 @@ const fetchActivity = async (endpoint) => {
 
 const checkForError = (response) => {
   if (response.ok) {
+    console.log(response)
     return response.json()  
   } else {
     throw new Error('UH OH! Something has gone horribly wrong!!!')
