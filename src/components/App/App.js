@@ -97,7 +97,7 @@ export const App = () => {
 
         <Switch>
           <Route 
-            exact path='/Home' 
+            path='/Home' 
             render={() => 
               <Form
                 savedView={savedView} 
@@ -111,29 +111,8 @@ export const App = () => {
               />
             }
           />
-          {/* <Route
-            exact
-            path='/:type'
-            render={() => 
-              <Activity
-                to='/:type'
-                id={suggestedActivity.key} 
-                activity={suggestedActivity.activity} 
-                type={suggestedActivity.type} 
-                participants={suggestedActivity.participants} 
-                price={suggestedActivity.price} 
-                link={suggestedActivity.link} 
-                accessibility={suggestedActivity.accessibility}
-                savedActivities={savedActivities}
-                savedView={savedView} 
-                sendToSaved={sendToSaved}
-                search={search}
-                suggestedActivity={suggestedActivity}
-              />
-            } 
-          /> */}
           <Route
-            exact path='/Showcase'
+            path='/Showcase'
             render={() => 
               <Showcase
                 showcasedActivities={showcasedActivities} 
@@ -144,7 +123,7 @@ export const App = () => {
             } 
           />
           <Route
-            exact path='/Saved' 
+            path='/Saved' 
             render={() => 
               <Saved
                 id={suggestedActivity.key}
@@ -158,20 +137,16 @@ export const App = () => {
             } 
           />  
         </Switch>
-
 {/* working route without url changing */}
         <Route
-          exact
-          path={`/:${suggestedActivity.type}`}
+          path='/:type'
           render={() => 
             <Activity
-              // to='/:type'
               id={suggestedActivity.key} 
               activity={suggestedActivity.activity} 
               type={suggestedActivity.type} 
               participants={suggestedActivity.participants} 
               price={suggestedActivity.price} 
-              link={suggestedActivity.link} 
               accessibility={suggestedActivity.accessibility}
               savedActivities={savedActivities}
               savedView={savedView} 
