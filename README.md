@@ -1,3 +1,60 @@
 # GET Un-Bored 
-## An Activity Generator for Indecisive Humans
+## Activity Generator for Indecisive Humans
+### Front-End Project by: [Beth Meeker](https://github.com/Meekb)
+
+## Overview
+  Have you ever been so bored that you don't know what to do? GET Un-Bored is an activity generator designed for indecisive humans. Using data from Bored API, users recieve a randomly generated activity card each time they click the DO A THING button. A drop down menu allows the choice of nine categories from which to get an activtiy, or simply leave category unselected to receive a suggestion from a random category. Users can Save the activity suggestions they like. The Saved view will allow users to Complete or Delete a saved activity. Once an activity is completed, the card is moved to the user Showcase along with a timestamp of completion. If you're feeling bored, GET Un-Bored today!
+  
+## Construction
+  * Built with React
+  * Uses strictly Functional Components with React Hooks
+  * Uses State to save/delete user activities
+  * React Router gives users an authentic navigation experience
+  * Fetches data from [Bored API](https://www.boredapi.com/documentation#endpoints-accessibility)
+  * Minimal styling with plaster wall backdrop for a truly boring display
+  * Completed activities are displayed with colorful animated border
+
+## Tech Stack
+
+<table>
+  <tr>
+    <td>JavaScript ES6</td>
+    <td>CSS</td>
+    <td>React</td>
+    <td>React Router</td>
+    <td>Cypress</td>
+  </tr>
+  <tr>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/javascript.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/css-3.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react-router.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/cypress.svg"/></td>
+  </tr>
+</table>
+
+
+## Contributors
+
+<table>
+     <tr>
+        <td> Beth Meeker <a href="https://github.com/meekb">GitHub</td>
+      </tr>
+      </tr>
+<td><img src="https://avatars.githubusercontent.com/u/76264735?v=4" alt="Beth Meeker avatar"
+width="150" height="auto" /></td>
+    </tr>
+</table>
+  
+  Project Managers:  
+  [Kayla Gordon](https://github.com/kaylaewood) &
+  [Scott Ertmer](https://github.com/sertmer)
+
+  [Turing School of Software & Design](https://frontend.turing.edu/projects/overlook.html)
+
+## Resources
+  1. [MDN](https://developer.mozilla.org/en-US/)
+  2. [CSS-tricks](https://css-tricks.com/)
+  3. [gifcap](https://gifcap.dev/)
+
 
