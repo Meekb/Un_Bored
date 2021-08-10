@@ -5,7 +5,7 @@ form {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 150px;
+  margin-top: 95px;
   background-image: url('../../../src/images/susan-wilkinson-1CqxdQ932eo-unsplash.jpg') no-repeat;
   background-size: cover;
 }
@@ -44,6 +44,7 @@ button:hover {
 
 .do-a-thing {
   margin-top: 55px;
+  background-color: #956eba;
 }
 
 .do-a-thing:hover {

@@ -95,7 +95,6 @@ export const App = () => {
       </header>
       
       <main className="App">
-
         <Switch>
           <Route 
             path='/Home' 
