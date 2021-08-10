@@ -14,21 +14,19 @@
   * Minimal styling with plaster wall backdrop for a truly boring display
   * Completed activities are displayed with colorful animated border
   * Categories: Education, Recreation, Social, DIY, Charity, Cooking, Relaxation, Music, Busywork
+  * Error component for faulty url
 
 From Un-Bored Home, users can generate a random activity by clicking the 'Do A Thing' button:
-![unbored Home](https://user-images.githubusercontent.com/76264735/128777634-80d616c9-e8a3-4d6f-b768-751a169ca55d.gif)
+![unbored Home](https://user-images.githubusercontent.com/76264735/128799600-b220a7ee-1aa1-4eea-9f3d-210fbd25b7cf.gif)
 
-The suggested activity card will be displayed with a button allowing the user to save it:
-![unboredSaveActivity](https://user-images.githubusercontent.com/76264735/128777796-b6e62bb9-ec8a-4769-8261-ef0311f397e7.gif)
+Suggested activities can be saved:
+![unbored Save](https://user-images.githubusercontent.com/76264735/128798832-7dff06cf-3a07-4cfe-bdbc-af05b6caefb9.gif)
 
-In Saved view, users can delete any saved activity:
-![unboredDelete](https://user-images.githubusercontent.com/76264735/128777905-f3cd630c-e05d-4e9b-9ebb-bcbd8e0efe9d.gif)
+In Saved view, users can delete saved activities:
+![unbored Delete](https://user-images.githubusercontent.com/76264735/128799132-4b2849f4-d5fd-412d-8b2a-9f4da0b99bca.gif)
 
-Users can choose to complete a saved activity. Completed activities move to their Showcase - each displaying a timestamp of completion:
-![unboredComplete](https://user-images.githubusercontent.com/76264735/128777992-ac4a1e75-154e-42ff-a0dd-ac94ab44c67f.gif)
-
-Navigate home from any page by click the GET Un-Bored app title:
-![unboredLogoNav](https://user-images.githubusercontent.com/76264735/128785040-598a579c-1b3c-45b8-a1fb-328f4c81ecef.gif)
+Users can Complete activities which will be timestamped and moved into the Showcase:
+![completeunbored](https://user-images.githubusercontent.com/76264735/128799851-7cfd4b51-a29f-4f0b-ba3c-86fdaec3213c.gif)
 
 
 ## Future Improvements
