@@ -36,7 +36,6 @@ describe('Saved area flow', () => {
         accessibility: 0.1
       }
     });
-    cy.visit('http://localhost:3000/Home')
       cy.get('select').select('Social')
       cy.get('main').find('button').click()
       cy.get('.activity-card')
@@ -60,7 +59,6 @@ describe('Saved area flow', () => {
         accessibility: 0.1
       }
     });
-    cy.visit('http://localhost:3000/Home')
       cy.get('select').select('Social')
       cy.get('main').find('button').click()
       cy.get('.activity-card')
