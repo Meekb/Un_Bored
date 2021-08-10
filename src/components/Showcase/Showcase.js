@@ -19,7 +19,7 @@ export const Showcase = ({ setSavedView, setSearch, showcaseView, showcasedActiv
   return (
     <section className='showcase'>
 
-      <h3 className='head'>✨ Showcase ✨</h3>
+      <h3 className='head'>Showcase Your Completed Activities!</h3>
         
       <section>
         {showcasedActivities.length ?

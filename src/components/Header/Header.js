@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import homeIcon from '../../images/homeIcon.svg';
 
-export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) => {
+export const Header = ({ setSavedView, setSearch, setShowcaseView }) => {
 
   const changeViewToHome = () => {
     setSavedView(false)
@@ -35,8 +35,7 @@ export const Header = ({ savedView, setSavedView, setSearch, setShowcaseView }) 
             style={{ textDecoration: 'none' }}
             onClick={() => changeViewFromLogo()}
           >
-            <h1 className='app-name'>GET Un-Bored</h1>
-            {/* <h2 className='sub-heading'>The Activity Generator For Indecisive Humans</h2> */}
+            <h1 className='app-name'>GET Un-Bored Activity Generator</h1>
           </NavLink>
       </div>
 
