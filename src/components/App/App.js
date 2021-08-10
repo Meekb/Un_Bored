@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Activity } from '../Activity/Activity';
+import { Error } from '../Error/Error';
 import { Form } from '../Form/Form';
 import { Header } from '../Header/Header';
 import { Saved } from '../Saved/Saved'
@@ -18,7 +19,7 @@ export const App = () => {
   const [search, setSearch] = useState(false);
   const [searchCategory, setSearchCategory] = useState('')
   const [suggestedActivity, setSuggestedActivity] = useState('');
-  const [errorCode, setErrorCode] = useState('');
+  const [error, setError] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const generateActivity = (searchCategory) => {
@@ -36,11 +37,11 @@ export const App = () => {
         setSearch(true)
       },
     )
-    .catch(error => setErrorCode(error.message))
+    .catch(error => setError(error.message))
   }
 
   const sendToSaved = (newActivity) => {
-    let included = savedActivities.find(saved => saved.key === newActivity.key)
+    const included = savedActivities.find(saved => saved.key === newActivity.key)
     if (included) {
       return;
     } 
@@ -135,7 +136,8 @@ export const App = () => {
                 checkSavedView={checkSavedView}
               />
             } 
-          />  
+          />
+          <Route component={Error}/>  
         </Switch>
 {/* working route without url changing */}
         <Route
