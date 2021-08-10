@@ -1,7 +1,8 @@
 describe('Activity suggestion flow', () => {
 
   //intercept is recognized on Cypress test runs, flagged stubbed YES, but still fetching from the api
-    cy.intercept('GET', 'http://www.boredapi.com/api/activity?/', 
+  beforeEach(() => {  
+  cy.intercept('GET', 'http://www.boredapi.com/api/activity?/', 
     {
       status: 200,
       ok: true,
