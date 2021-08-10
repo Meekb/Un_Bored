@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Activity } from '../Activity/Activity';
 import { Error } from '../Error/Error';
 import { Form } from '../Form/Form';
@@ -113,7 +113,7 @@ export const App = () => {
             }
           />
           <Route
-            path='/Showcase'
+            exact path='/Showcase'
             render={() => 
               <Showcase
                 showcasedActivities={showcasedActivities} 
@@ -124,7 +124,7 @@ export const App = () => {
             } 
           />
           <Route
-            path='/Saved' 
+            exact path='/Saved' 
             render={() => 
               <Saved
                 id={suggestedActivity.key}
