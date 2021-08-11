@@ -5,7 +5,7 @@ import { Form } from '../Form/Form';
 import { Header } from '../Header/Header';
 import { Saved } from '../Saved/Saved'
 import { Showcase } from '../Showcase/Showcase';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { fetchActivity } from '../../apiCalls';
 import './App.css';
 
@@ -21,6 +21,7 @@ export const App = () => {
   const [suggestedActivity, setSuggestedActivity] = useState('');
   const [error, setError] = useState(true);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const generateActivity = (searchCategory) => {
     let endpath;
@@ -35,6 +36,7 @@ export const App = () => {
         setSuggestedActivity(activityData)
         setLoading(false)
         setSearch(true)
+        history.push(activityData)
       },
     )
     .catch(error => setError(error.message))
@@ -89,7 +91,6 @@ export const App = () => {
 
     <section className='App'>
 
-    
       <header>
         <Header savedView={savedView} setSavedView={setSavedView} setSearch={setSearch} setShowcaseView={setShowcaseView} /> 
       </header>
