@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Activity.css';
 
-export const Activity = ({ activity, id, type, participants, price, accessibility, savedView, setSavedView, search, sendToSaved, suggestedActivity }) => {
+export const Activity = ({ activity, id, loading, type, participants, price, accessibility, savedView, setSavedView, search, sendToSaved, suggestedActivity }) => {
 
   const saveActivityInfo = (e) => { 
     e.preventDefault()
@@ -76,7 +76,7 @@ export const Activity = ({ activity, id, type, participants, price, accessibilit
 
   return (
     <section className='generated-activity'>
-        
+        {loading && <h3>Loading...</h3>}
         {(search && !savedView) ? 
         <div className='activity-card' key={id}>
           <h2 className='title'>{activity}!</h2>
