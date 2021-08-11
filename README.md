@@ -5,6 +5,15 @@
 ## Overview
   Have you ever been so bored that you don't know what to do? GET Un-Bored is an activity generator designed for indecisive humans. Using data from [Bored API](https://www.boredapi.com/documentation#endpoints-accessibility), users recieve a randomly generated activity card each time they click the DO A THING button. A drop down menu allows the choice of nine categories from which to get an activity, or simply leave category unselected to receive a suggestion from a random category. Users can save the activity suggestions they like. The Saved view will allow users to Complete or Delete a saved activity. Once an activity is completed, the card is moved to the user Showcase along with a timestamp of completion. If you're feeling bored, Do A Thing and GET Un-Bored!
   
+  
+## Instructions
+* Clone down this repository git clone (git@github.com:Meekb/Un_Bored.git) 
+* CD into your local clone cd un-bored 
+* Install project dependencies npm install 
+* Run npm start 
+* Open (http://localhost:3000/) in your preferred browser
+
+  
 ## Construction
   * Built with React
   * Uses strictly Functional Components with React Hooks
