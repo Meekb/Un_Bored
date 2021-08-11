@@ -127,13 +127,13 @@ export const App = () => {
             exact path='/Saved' 
             render={() => 
               <Saved
-                id={suggestedActivity.key}
+                checkSavedView={checkSavedView}
                 completeActivity={completeActivity}
                 deleteActivity={deleteActivity} 
+                id={suggestedActivity.key}
                 savedActivities={savedActivities}
                 setSavedView={setSavedView}
                 showcaseView={showcaseView}
-                checkSavedView={checkSavedView}
               />
             } 
           />
@@ -144,18 +144,19 @@ export const App = () => {
           path='/:type'
           render={() => 
             <Activity
-              id={suggestedActivity.key} 
+              accessibility={suggestedActivity.accessibility}
               activity={suggestedActivity.activity} 
-              type={suggestedActivity.type} 
+              id={suggestedActivity.key}
+              loading={loading} 
               participants={suggestedActivity.participants} 
               price={suggestedActivity.price} 
-              accessibility={suggestedActivity.accessibility}
               savedActivities={savedActivities}
               savedView={savedView} 
-              sendToSaved={sendToSaved}
               search={search}
-              suggestedActivity={suggestedActivity}
+              sendToSaved={sendToSaved}
               setSavedView={setSavedView}
+              suggestedActivity={suggestedActivity}
+              type={suggestedActivity.type} 
             />
           }
         />
