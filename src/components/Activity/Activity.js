@@ -84,7 +84,7 @@ export const Activity = ({ activity, id, type, participants, price, accessibilit
           <p className='participants'>Participants: {participants}</p>
           {price === 0 ? <p className='cost'>Estimated cost: FREE!</p> : <p className='cost'>Estimated cost: ${(price * 10).toFixed(2)}</p>}
           {displayAccessibility(accessibility)}
-          <NavLink to='/Un_Bored/:type'>
+          <NavLink to='/:type'>
             <button className='save-btn' onClick={(e) => saveActivityInfo(e)}>Save Activity</button>
           </NavLink>
         </div> : null
