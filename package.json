@@ -1,5 +1,6 @@
 {
   "name": "life",
+  "homepage": "https://meekb.github.io/Un_Bored/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,6 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://meekb.github.io/Un_Bored/"
+  }
 }
