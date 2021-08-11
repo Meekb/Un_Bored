@@ -136,7 +136,7 @@ export const App = () => {
               />
             } 
           />
-          {/* <Route component={Error}/>   */}
+          <Route component={Error}/>  
         </Switch>
 {/* working route without url changing */}
         <Route
