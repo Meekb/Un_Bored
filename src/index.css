@@ -5,10 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 400px;
-  /* margin-bottom: 100px; */
   background-image: url('../src/images/susan-wilkinson-1CqxdQ932eo-unsplash.jpg');
   background-size: cover;
-  /* height: 100%; */
 }
 
 code {
